@@ -43,6 +43,8 @@ function InitializeGame()
   asteroid = new Asteroid();
   asteroidWaveManager = new AsteroidWaveManager();
   asteroidWaveManager.SpawnWave();
+
+  console.log("test commit");
 }
 
 function DrawEverything()
