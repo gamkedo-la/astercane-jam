@@ -33,6 +33,11 @@ function setKeyHoldState(thisKey, setTo)
   }
   if(thisKey == player.controlKeyToShoot)
   {
+    if (splashScreenActive)
+    {
+      splashScreenActive = false;
+      backgroundMusicAudioTag.play();
+    }
     player.keyHeld_Shoot = setTo;
     if (setTo == false)
     {

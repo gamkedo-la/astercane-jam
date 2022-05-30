@@ -23,6 +23,7 @@ function Player()
   this.keyHeld_Shoot = false;
 
   this.shot_Fired_This_Keypress = false;
+  this.shouldPlaySecondLaserAudioTag = false;
 
   this.setupControls = function(moveUpKey,moveLeftKey,moveDownKey,moveRightKey,shootKey)
   {
@@ -90,6 +91,19 @@ function Player()
   {
       let newBullet = new Bullet(this.x + this.width/2 - BULLET_WIDTH/2, this.y - BULLET_HEIGHT);
       bulletManager.arrayOfBullets.push(newBullet);
+
+      if (this.shouldPlaySecondLaserAudioTag)
+      {
+        laserShotAudioTag2.currentTime = 0;
+        laserShotAudioTag2.play();
+      }
+      else
+      {
+        laserShotAudioTag.currentTime = 0;
+        laserShotAudioTag.play();
+      }
+      this.shouldPlaySecondLaserAudioTag = !this.shouldPlaySecondLaserAudioTag;
+
       this.shot_Fired_This_Keypress = true;
   }
 

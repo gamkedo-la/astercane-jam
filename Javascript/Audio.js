@@ -1,8 +1,10 @@
 var laserShotAudioTag = new Audio("Audio/Laser_Shoot.wav");
+var laserShotAudioTag2 = new Audio("Audio/Laser_Shoot.wav");
 var guiNavigaeAudioTag = new Audio("Audio/GUI_Navigate.wav");
 var guiSelectAudioTag = new Audio("Audio/GUI_Select.wav");
 
 var backgroundMusicAudioTag = new Audio("Audio/583555__noisytoons__nt-super-cosmic.mp3");
+backgroundMusicAudioTag.loop = true;
 
 var audioFormat;
 

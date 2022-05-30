@@ -1,6 +1,9 @@
 let canvas;
 let canvasContext;
 
+let splashScreen;
+let splashScreenActive = true;
+
 let background;
 let player;
 let asteroid;
@@ -30,6 +33,8 @@ function loadingDoneSoStartGame() {
 
 function InitializeGame()
 {
+  splashScreen = new SplashScreen();
+
   background = new Background();
   background.initialize();
   background.initializePlaceholderBoundarAsteroids();
@@ -49,6 +54,11 @@ function InitializeGame()
 
 function DrawEverything()
 {
+  if (splashScreenActive)
+  {
+    splashScreen.Draw();
+    return;
+  }
   background.Draw();
   player.Draw();
   bulletManager.DrawBullets();
