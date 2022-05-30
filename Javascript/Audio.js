@@ -5,6 +5,8 @@ var guiSelectAudioTag = new Audio("Audio/GUI_Select.wav");
 
 var backgroundMusicAudioTag = new Audio("Audio/583555__noisytoons__nt-super-cosmic.mp3");
 backgroundMusicAudioTag.loop = true;
+backgroundMusicAudioTag.playbackRate = 0.66;
+backgroundMusicAudioTag.volume = 0.66;
 
 var audioFormat;
 

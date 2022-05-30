@@ -36,6 +36,7 @@ function setKeyHoldState(thisKey, setTo)
     if (splashScreenActive)
     {
       splashScreenActive = false;
+      playingGame = true;
       backgroundMusicAudioTag.play();
     }
     player.keyHeld_Shoot = setTo;

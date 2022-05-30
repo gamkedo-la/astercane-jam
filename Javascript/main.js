@@ -4,6 +4,8 @@ let canvasContext;
 let splashScreen;
 let splashScreenActive = true;
 
+let playingGame = false;
+
 let background;
 let player;
 let asteroid;
@@ -68,6 +70,10 @@ function DrawEverything()
 
 function MoveEverything()
 {
+  if (!playingGame)
+  {
+    return;
+  }
   background.moveBoundaryAsteroids();
   player.Move();
   bulletManager.MoveBullets();

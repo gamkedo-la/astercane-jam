@@ -1,6 +1,8 @@
 const ASTEROID_WIDTH = 25;
 const ASTEROID_HEIGHT = 25;
 
+let boundaryAsteroidSpeedAdjustment = 0;
+
 function Asteroid(startingX,startingY)
 {
   this.width = ASTEROID_WIDTH;
@@ -24,13 +26,13 @@ function Asteroid(startingX,startingY)
 
   this.Move = function()
   {
-    this.x += this.xSpeed*this.xDirection;
-    this.y += this.ySpeed;
+    this.x += this.xSpeed*this.xDirection + boundaryAsteroidSpeedAdjustment;
+    this.y += this.ySpeed + boundaryAsteroidSpeedAdjustment;
 
     //handle left side of astercane
     if (this.x < canvas.width/2)
     {
-      
+
       if (this.x < 0)
       {
         this.x = 0;

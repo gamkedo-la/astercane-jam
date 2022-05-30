@@ -115,6 +115,15 @@ function AsteroidWaveManager()
       {
         this.arrayOfAsteroids = [];
         this.SpawnWave();
+
+        boundaryAsteroidSpeedAdjustment += 0.05;
+
+        backgroundMusicAudioTag.playbackRate += 0.01;
+
+        if (backgroundMusicAudioTag.volume < 1)
+        {
+        backgroundMusicAudioTag.volume += 0.01;
+        }
       }
     }
   }
