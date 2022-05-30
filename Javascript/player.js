@@ -22,6 +22,8 @@ function Player()
   this.keyHeld_MoveRight = false;
   this.keyHeld_Shoot = false;
 
+  this.shot_Fired_This_Keypress = false;
+
   this.setupControls = function(moveUpKey,moveLeftKey,moveDownKey,moveRightKey,shootKey)
   {
     this.controlKeyToMoveUp = moveUpKey;
@@ -59,6 +61,10 @@ function Player()
 
     if(this.keyHeld_Shoot)
     {
+      if (this.shot_Fired_This_Keypress)
+      {
+        return;
+      }
       this.ShootBullet();
     }
 
@@ -84,6 +90,7 @@ function Player()
   {
       let newBullet = new Bullet(this.x + this.width/2 - BULLET_WIDTH/2, this.y - BULLET_HEIGHT);
       bulletManager.arrayOfBullets.push(newBullet);
+      this.shot_Fired_This_Keypress = true;
   }
 
   this.Draw = function()

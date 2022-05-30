@@ -34,6 +34,10 @@ function setKeyHoldState(thisKey, setTo)
   if(thisKey == player.controlKeyToShoot)
   {
     player.keyHeld_Shoot = setTo;
+    if (setTo == false)
+    {
+      player.shot_Fired_This_Keypress = false;
+    }
   }
 }
 
