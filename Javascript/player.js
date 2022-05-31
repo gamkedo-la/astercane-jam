@@ -1,5 +1,5 @@
-const PLAYER_Y_SPEED = 10;
-const PLAYER_X_SPEED = 10;
+const PLAYER_Y_SPEED = 20;
+const PLAYER_X_SPEED = 20;
 
 function Player()
 {

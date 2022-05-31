@@ -12,6 +12,7 @@ let asteroid;
 let bulletManager;
 let asteroidWaveManager;
 let communicationManager;
+let testSignalBoosterPowerup;
 
 window.onload = function()
 {
@@ -25,7 +26,7 @@ window.onload = function()
 }
 
 function loadingDoneSoStartGame() {
-  // these next few lines set up our game logic and render to happen 30 times per second
+  console.log("anything");
   var framesPerSecond = 30;
   setInterval(function() {
       MoveEverything();
@@ -51,6 +52,10 @@ function InitializeGame()
   asteroidWaveManager = new AsteroidWaveManager();
   asteroidWaveManager.SpawnWave();
 
+  testSignalBoosterPowerup = new SignalBoosterPowerup();
+  console.log("testSignalBoosterPowerup: " + testSignalBoosterPowerup);
+  testSignalBoosterPowerup.defineStartingPosition();
+  testSignalBoosterPowerup.SetStraightLinePathThroughVelocity();
   setAudioFormat();
 }
 
@@ -66,6 +71,7 @@ function DrawEverything()
   bulletManager.DrawBullets();
   asteroidWaveManager.drawWaveOfAsteroids();
   communicationManager.drawText();
+  testSignalBoosterPowerup.Draw();
 }
 
 function MoveEverything()
@@ -79,4 +85,5 @@ function MoveEverything()
   bulletManager.MoveBullets();
   asteroidWaveManager.moveWaveOfAsteroids();
   communicationManager.updateAlpha();
+  testSignalBoosterPowerup.Move();
 }

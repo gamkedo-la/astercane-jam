@@ -5,6 +5,8 @@ var asteroidImage=document.createElement("img");
 var indestructibleAsteroidImage=document.createElement("img");
 var destructibleAsteroidImage=document.createElement("img");
 
+var signalBoosterPowerupImage=document.createElement("img");
+
 var picsToLoad = 0;
 
 function countLoadedImageAndLaunchIfReady() {
@@ -25,7 +27,8 @@ function loadImages() {
     {varName:asteroidImage, theFile:"AsteroidImage.png"},
     {varName:bulletImage, theFile:"bulletImage.png"},
     {varName:indestructibleAsteroidImage, theFile:"IndestructibleAsteroidImage.png"},
-    {varName:destructibleAsteroidImage, theFile:"DestructibleAsteroidImage.png"}
+    {varName:destructibleAsteroidImage, theFile:"DestructibleAsteroidImage.png"},
+    {varName:signalBoosterPowerupImage, theFile:"SignalBoosterPowerupImage.png"}
     ];
 
   picsToLoad = imageList.length;
