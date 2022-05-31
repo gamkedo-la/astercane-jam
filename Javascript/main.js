@@ -72,6 +72,7 @@ function DrawEverything()
   asteroidWaveManager.drawWaveOfAsteroids();
   communicationManager.drawText();
   testSignalBoosterPowerup.Draw();
+  DrawDamageCount();
 }
 
 function MoveEverything()

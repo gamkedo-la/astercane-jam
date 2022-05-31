@@ -85,6 +85,7 @@ function Player()
           {
             this.x = this.startingX;
             this.y = this.startingY;
+            damageCount++;
             explosionAudioTag.play();
           }
     }
