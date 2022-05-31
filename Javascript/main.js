@@ -86,4 +86,5 @@ function MoveEverything()
   asteroidWaveManager.moveWaveOfAsteroids();
   communicationManager.updateAlpha();
   testSignalBoosterPowerup.Move();
+  testSignalBoosterPowerup.checkForReset();
 }

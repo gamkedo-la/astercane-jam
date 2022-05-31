@@ -6,8 +6,6 @@ function SignalBoosterPowerup()
   this.x = undefined;
   this.y = undefined;
 
-  this.offScreen = true;
-
   this.xVelocity = undefined;
   this.yVelocity = undefined;
 
@@ -61,15 +59,24 @@ function SignalBoosterPowerup()
   {
     var targetX = player.x;
     var targetY = player.y;
-    console.log("player.x: " + player.x);
-    console.log("this.x: " + this.x);
+
     var deltaX = targetX - this.x;
     var deltaY = targetY - this.y;
-    console.log("deltaX: " + deltaX);
-    console.log("deltaY: " + deltaY);
+
     var pathAngle = Math.atan2(deltaX,deltaY);
-    console.log("pathAngle: " + pathAngle);
+    
     this.xVelocity = this.speed * Math.cos(pathAngle);
     this.yVelocity = this.speed * Math.sin(pathAngle);
+  }
+
+  this.checkForReset = function()
+  {    //left side                                  //right side
+    if (this.x < -SIGNAL_BOOSTER_POWERUP_WIDTH*3 || this.x > canvas.width + SIGNAL_BOOSTER_POWERUP_WIDTH*2 ||
+      //top side                                     //bottom side
+        this.y < -SIGNAL_BOOSTER_POWERUP_HEIGHT*2 || this.y > canvas.height + SIGNAL_BOOSTER_POWERUP_HEIGHT*2)
+        {
+          this.defineStartingPosition();
+          this.SetStraightLinePathThroughVelocity();
+        }
   }
 }
