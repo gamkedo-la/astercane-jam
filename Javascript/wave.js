@@ -1,6 +1,7 @@
 const WAVE_ROW_WIDTH = 70;
 const WAVE_COLUMN_HEIGHT = 70;
 const NUMBER_OF_WAVE_COLUMNS = 12;
+const TOTAL_NUMBER_OF_WAVES = 50;
 
 function Wave()
 {
@@ -95,7 +96,7 @@ function AsteroidWaveManager()
 
     //this.currentEasySideProbability += this.difficultyAdjustment;
     this.currentDifficultSideProbability -= this.difficultyAdjustment;
-    WAVE_ASTEROID_SPEED += 1;
+    WAVE_ASTEROID_SPEED += 0.5;
   }
 
   this.drawWaveOfAsteroids = function()
