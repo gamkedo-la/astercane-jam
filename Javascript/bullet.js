@@ -40,6 +40,10 @@ function BulletManager()
             asteroidWaveManager.arrayOfAsteroids.splice(j,1);
             explosionAudioTag.play();
           }
+          else
+          {
+            indestructibleAsteroidWithBulletAudioTag.play();
+          }
         }
       }
     }
