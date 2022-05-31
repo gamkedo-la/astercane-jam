@@ -98,6 +98,7 @@ function Player()
       {
         testSignalBoosterPowerup.defineStartingPosition();
         testSignalBoosterPowerup.SetStraightLinePathThroughVelocity();
+        signalBoosterAudioTag.play();
         communicationManager.currentAlpha = 1;
       }
   }
