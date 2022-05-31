@@ -1,5 +1,5 @@
-const PLAYER_Y_SPEED = 20;
-const PLAYER_X_SPEED = 20;
+const PLAYER_Y_SPEED = 15;
+const PLAYER_X_SPEED = 15;
 
 function Player()
 {
@@ -69,6 +69,7 @@ function Player()
       this.ShootBullet();
     }
 
+    //collision check asteroids
     for (let i = 0; i < asteroidWaveManager.arrayOfAsteroids.length; i++)
     {
       if (
@@ -85,6 +86,17 @@ function Player()
             this.destroyed = true;
           }
     }
+
+    //collision check signal booster powerup
+    if (this.x < testSignalBoosterPowerup.x + SIGNAL_BOOSTER_POWERUP_WIDTH &&
+      this.x + this.width > testSignalBoosterPowerup.x &&
+      this.y < testSignalBoosterPowerup.y + SIGNAL_BOOSTER_POWERUP_HEIGHT &&
+      this.y + this.height > testSignalBoosterPowerup.y)
+      {
+        testSignalBoosterPowerup.defineStartingPosition();
+        testSignalBoosterPowerup.SetStraightLinePathThroughVelocity();
+        communicationManager.currentAlpha = 1;
+      }
   }
 
   this.ShootBullet = function()

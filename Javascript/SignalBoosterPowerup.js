@@ -20,8 +20,6 @@ function SignalBoosterPowerup()
   {
     this.x += this.xVelocity;
     this.y += this.yVelocity;
-
-    console.log("this.x: " + this.x);
   }
 
   this.defineStartingPosition = function()
@@ -64,7 +62,7 @@ function SignalBoosterPowerup()
     var deltaY = targetY - this.y;
 
     var pathAngle = Math.atan2(deltaX,deltaY);
-    
+
     this.xVelocity = this.speed * Math.cos(pathAngle);
     this.yVelocity = this.speed * Math.sin(pathAngle);
   }
