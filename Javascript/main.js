@@ -1,6 +1,8 @@
 let canvas;
 let canvasContext;
 
+let isPaused = false;
+
 let splashScreen;
 let splashScreenActive = true;
 
@@ -66,18 +68,28 @@ function DrawEverything()
     splashScreen.Draw();
     return;
   }
-  background.Draw();
-  player.Draw();
-  bulletManager.DrawBullets();
-  asteroidWaveManager.drawWaveOfAsteroids();
-  communicationManager.drawText();
-  testSignalBoosterPowerup.Draw();
-  DrawDamageCount();
+
+  if (isPaused)
+  {
+    canvasContext.fillStyle = "red";
+    canvasContext.font = "100px helvetica";
+    canvasContext.fillText("Paused", canvas.width/2 - 50,canvas.height/2 - 50);
+  }
+  else
+  {
+    background.Draw();
+    player.Draw();
+    bulletManager.DrawBullets();
+    asteroidWaveManager.drawWaveOfAsteroids();
+    communicationManager.drawText();
+    testSignalBoosterPowerup.Draw();
+    DrawDamageCount();
+  }
 }
 
 function MoveEverything()
 {
-  if (!playingGame)
+  if (!playingGame || isPaused)
   {
     return;
   }

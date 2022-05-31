@@ -4,6 +4,8 @@ const KEY_LETTER_S = 83;
 const KEY_LETTER_D = 68;
 const KEY_SPACEBAR = 32;
 
+const KEY_LETTER_P = 80;
+
 function initInput()
 {
   document.addEventListener("keydown", keyPressed);
@@ -45,6 +47,8 @@ function setKeyHoldState(thisKey, setTo)
       player.shot_Fired_This_Keypress = false;
     }
   }
+
+
 }
 
 function keyPressed(evt)
@@ -57,4 +61,9 @@ function keyPressed(evt)
 function keyReleased(evt)
 {
   setKeyHoldState(evt.keyCode, false);
+
+  if(evt.keyCode == KEY_LETTER_P)
+  {
+    isPaused = !isPaused;
+  }
 }
