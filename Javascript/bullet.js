@@ -38,6 +38,7 @@ function BulletManager()
           if (asteroidWaveManager.arrayOfAsteroids[j].destructible)
           {
             asteroidWaveManager.arrayOfAsteroids.splice(j,1);
+            explosionAudioTag.play();
           }
         }
       }
