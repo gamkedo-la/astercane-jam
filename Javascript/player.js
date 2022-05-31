@@ -83,7 +83,9 @@ function Player()
         (this.x < LEFT_ASTERCANE_BOUNDARY_XCOORDINATE - this.width/2 || this.x + this.width > RIGHT_ASTERCANE_BOUNDARY_XCOORDINATE + this.width/2)
       )
           {
-            this.destroyed = true;
+            this.x = this.startingX;
+            this.y = this.startingY;
+            explosionAudioTag.play();
           }
     }
 
