@@ -40,6 +40,7 @@ function setKeyHoldState(thisKey, setTo)
       splashScreenActive = false;
       playingGame = true;
       backgroundMusicAudioTag.play();
+      gameplayHUD.startClock();
     }
     player.keyHeld_Shoot = setTo;
     if (setTo == false)

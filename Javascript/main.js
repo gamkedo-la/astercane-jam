@@ -15,6 +15,7 @@ let bulletManager;
 let asteroidWaveManager;
 let communicationManager;
 let testSignalBoosterPowerup;
+let gameplayHUD;
 
 window.onload = function()
 {
@@ -58,6 +59,9 @@ function InitializeGame()
   console.log("testSignalBoosterPowerup: " + testSignalBoosterPowerup);
   testSignalBoosterPowerup.defineStartingPosition();
   testSignalBoosterPowerup.SetStraightLinePathThroughVelocity();
+
+  gameplayHUD = new GameplayHUD();
+
   setAudioFormat();
 }
 
@@ -84,6 +88,8 @@ function DrawEverything()
     communicationManager.drawText();
     testSignalBoosterPowerup.Draw();
     DrawDamageCount();
+    gameplayHUD.displayWaveCount();
+    gameplayHUD.displayElapsedTime();
   }
 }
 

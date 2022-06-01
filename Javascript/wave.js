@@ -16,8 +16,12 @@ function AsteroidWaveManager()
 
   this.arrayOfAsteroids = [];
 
+  this.waveCount = 0;
+
   this.SpawnWave = function()
   {
+    this.waveCount++;
+    
     for (let i = 0; i < NUMBER_OF_WAVE_COLUMNS; i++)
     {
       //choose which side is more passable
