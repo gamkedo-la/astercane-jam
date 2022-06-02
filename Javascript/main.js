@@ -7,6 +7,10 @@ let splashScreen;
 let splashScreenActive = true;
 let titleScene;
 let titleSceneActive = false;
+let storylineScene;
+let storylineSceneActive = false;
+let controlsScene;
+let controlsSceneActive = false;
 
 let playingGame = false;
 
@@ -48,6 +52,8 @@ function InitializeGame()
   background.initializePlaceholderBoundarAsteroids();
 
   titleScene = new TitleScene();
+  storylineScene = new StorylineScene();
+  controlsScene = new ControlsScene();
 
   player = new Player();
   initInput();
@@ -81,7 +87,17 @@ function DrawEverything()
     titleScene.Draw();
     return;
   }
-
+  if (storylineSceneActive)
+  {
+    storylineScene.Draw();
+    return;
+  }
+  if (controlsSceneActive)
+  {
+    controlsScene.Draw();
+    return;
+  }
+  
   if (isPaused)
   {
     canvasContext.fillStyle = "red";

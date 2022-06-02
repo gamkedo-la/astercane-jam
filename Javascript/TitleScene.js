@@ -12,7 +12,7 @@ function TitleScene()
   this.drawTitleText = function()
   {
     canvasContext.fillStyle = 'grey';
-    canvasContext.font = 'chalkduster 30px';
+    canvasContext.font = 'chalkduster 100px';
     canvasContext.fillText(this.titleText, canvas.width/2 - 100, 100);
   }
 
@@ -25,6 +25,8 @@ function TitleScene()
     this.drawPlayButtonText();
     this.drawStorylineButtonText();
     this.drawControlsButtonText();
+
+    this.drawGUIControlsTip();
   }
 
   this.drawPlayButtonText = function()
@@ -45,12 +47,19 @@ function TitleScene()
   {
     canvasContext.fillStyle = 'grey';
     canvasContext.font = 'chalkduster 50px';
-    canvasContext.fillText("Controls", canvas.width/2 - 100, 500);
+    canvasContext.fillText("Game Controls", canvas.width/2 - 100, 500);
   }
 
   this.drawButtonHighlight = function(currentButtonIndex)
   {
     canvasContext.fillStyle = "white";
-    canvasContext.fillRect(canvas.width/2 - 150,250 + currentButtonIndex*100, 200,100);
+    canvasContext.fillRect(canvas.width/2 - 125,250 + currentButtonIndex*100, 250,100);
+  }
+
+  this.drawGUIControlsTip = function()
+  {
+    canvasContext.fillStyle = 'grey';
+    canvasContext.font = '30px chalkduster';
+    canvasContext.fillText("W = navigate up. S = navigate down. Spacebar = select", canvas.width*0.2,canvas.height - 100);
   }
 }

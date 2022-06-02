@@ -69,7 +69,7 @@ function setKeyHoldState(thisKey, setTo)
 
     if (titleSceneActive && setTo == true)
     {
-      console.log("inside title scene spacebar code");
+      //title scene
       if (titleScene.currentButtonIndex == 0)
       {
         titleSceneActive = false;
@@ -80,7 +80,37 @@ function setKeyHoldState(thisKey, setTo)
         player.keyHeld_Shoot = setTo;
         return;
       }
+      //storyline scene
+      else if (titleScene.currentButtonIndex == 1)
+      {
+        titleSceneActive = false;
+        storylineSceneActive = true;
+        player.keyHeld_Shoot = setTo;
+        return;
+      }
+      else if (titleScene.currentButtonIndex == 2)
+      {
+        titleSceneActive = false;
+        controlsSceneActive = true;
+        player.keyHeld_Shoot = setTo;
+        return;
+      }
     }
+    else if (storylineSceneActive && setTo == true)
+    {
+      storylineSceneActive = false;
+      titleSceneActive = true;
+      player.keyHeld_Shoot = setTo;
+      return;
+    }
+    else if (controlsSceneActive && setTo == true)
+    {
+      controlsSceneActive = false;
+      titleSceneActive = true;
+      player.keyHeld_Shoot = setTo;
+      return;
+    }
+
     player.keyHeld_Shoot = setTo;
     if (setTo == false)
     {
