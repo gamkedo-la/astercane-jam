@@ -16,7 +16,7 @@ function ControlsScene()
   this.drawControlsText = function()
   {
     canvasContext.fillStyle = 'grey';
-    canvasContext.font = '30px chalkduster';
+    canvasContext.font = '30px VT323';
     canvasContext.fillText("W = move up", canvas.width/2,canvas.height/2);
     canvasContext.fillText("A = move left", canvas.width/2,canvas.height/2 + 30);
     canvasContext.fillText("S = move down", canvas.width/2,canvas.height/2 + 60);
@@ -27,7 +27,7 @@ function ControlsScene()
   this.drawSpacebarTip = function()
   {
     canvasContext.fillStyle = 'grey';
-    canvasContext.font = '30px chalkduster';
+    canvasContext.font = '30px VT323';
     canvasContext.fillText("Press spacebar to return to title scene.", canvas.width/2,canvas.height - 100);
   }
 }

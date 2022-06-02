@@ -5,7 +5,7 @@ function GameplayHUD()
   this.displayWaveCount = function()
   {
     canvasContext.fillStyle = 'red';
-    canvasContext.font = '30px helvetica';
+    canvasContext.font = '30px VT323';
     canvasContext.fillText(asteroidWaveManager.waveCount, 50,canvas.height - 50);
   }
 
@@ -21,7 +21,7 @@ function GameplayHUD()
     let convertToSeconds = elapsedTime/1000;
     let roundedSeconds = Math.round(convertToSeconds);
     canvasContext.fillStyle = 'red';
-    canvasContext.font = '30px helvetica';
+    canvasContext.font = '30px VT323';
     canvasContext.fillText(roundedSeconds, 100,canvas.height - 50);
   }
 }

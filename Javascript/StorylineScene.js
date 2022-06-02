@@ -16,14 +16,14 @@ function StorylineScene()
   this.drawStorylineText = function()
   {
     canvasContext.fillStyle = 'grey';
-    canvasContext.font = '30px chalkduster';
+    canvasContext.font = '30px VT323';
     canvasContext.fillText("This is the story of the game.", canvas.width/2,canvas.height/2);
   }
 
   this.drawSpacebarTip = function()
   {
     canvasContext.fillStyle = 'grey';
-    canvasContext.font = '30px chalkduster';
+    canvasContext.font = '30px VT323';
     canvasContext.fillText("Press spacebar to return to title scene.", canvas.width/2,canvas.height - 100);
   }
 }

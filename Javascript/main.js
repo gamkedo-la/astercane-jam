@@ -99,7 +99,7 @@ function DrawEverything()
   if (isPaused)
   {
     canvasContext.fillStyle = "red";
-    canvasContext.font = "100px helvetica";
+    canvasContext.font = "100px VT323";
     canvasContext.fillText("Paused", canvas.width/2 - 50,canvas.height/2 - 50);
   }
   else
