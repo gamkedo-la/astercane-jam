@@ -31,35 +31,26 @@ function SignalBoosterPowerup()
       {
         this.x = getRandomArbitrary(0, canvas.width - SIGNAL_BOOSTER_POWERUP_WIDTH)
         this.y = getRandomArbitrary(-SIGNAL_BOOSTER_POWERUP_HEIGHT, 0);
-        console.log("powerup spawned off top side");
       }
       //position just off the left of the screen
       else if (fourSidedDieResult > 0.5)
       {
         this.x = getRandomArbitrary(-SIGNAL_BOOSTER_POWERUP_WIDTH*2, SIGNAL_BOOSTER_POWERUP_WIDTH)
         this.y = getRandomArbitrary(0, canvas.height);
-        console.log("powerup spawned off left side");
-
       }
       //position just off the bottom of the screen
       else if (fourSidedDieResult > 0.25)
       {
         this.x = getRandomArbitrary(0, canvas.width - SIGNAL_BOOSTER_POWERUP_WIDTH)
         this.y = getRandomArbitrary(canvas.height + SIGNAL_BOOSTER_POWERUP_HEIGHT, canvas.height + SIGNAL_BOOSTER_POWERUP_HEIGHT*2);
-        console.log("powerup spawned off bottom side");
-
       }
       //position just off the right of the screen
       else
       {
         this.x = getRandomArbitrary(canvas.width, canvas.width + SIGNAL_BOOSTER_POWERUP_WIDTH)
         this.y = getRandomArbitrary(0, canvas.height);
-        console.log("powerup spawned off right side");
-
       }
     }
-    console.log("this.x: " + this.x);
-    console.log("this.y: " + this.y);
   }
 
   this.SetStraightLinePathThroughVelocity = function()
@@ -74,8 +65,6 @@ function SignalBoosterPowerup()
 
     this.xVelocity = this.speed * Math.cos(pathAngle);
     this.yVelocity = this.speed * Math.sin(pathAngle);
-    console.log("this.xVelocity: " + this.xVelocity);
-    console.log("this.yVelocity: " + this.yVelocity);
   }
 
   this.checkForReset = function()

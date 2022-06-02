@@ -35,7 +35,6 @@ window.onload = function()
 }
 
 function loadingDoneSoStartGame() {
-  console.log("anything");
   var framesPerSecond = 30;
   setInterval(function() {
       MoveEverything();
@@ -66,7 +65,6 @@ function InitializeGame()
   asteroidWaveManager.SpawnWave();
 
   testSignalBoosterPowerup = new SignalBoosterPowerup();
-  console.log("testSignalBoosterPowerup: " + testSignalBoosterPowerup);
   testSignalBoosterPowerup.defineStartingPosition();
   testSignalBoosterPowerup.SetStraightLinePathThroughVelocity();
 
@@ -97,7 +95,7 @@ function DrawEverything()
     controlsScene.Draw();
     return;
   }
-  
+
   if (isPaused)
   {
     canvasContext.fillStyle = "red";

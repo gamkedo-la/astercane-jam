@@ -18,81 +18,117 @@ function AsteroidWaveManager()
 
   this.waveCount = 0;
 
+  this.currentNumberOfIndestructibleAsteroidsOnDifficultSide = 0;
+  this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide = 2;
+
+  this.defineMinimumNumberOfIndestructibleAsteroidsOnDifficultSide = function()
+  {
+    if (this.waveCount < 10)
+    {
+      this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide = 2;
+    }
+    else if (this.waveCount < 20)
+    {
+      this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide = 3;
+    }
+    else if (this.waveCount < 30)
+    {
+      this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide = 4;
+    }
+    else if (this.waveCount < 40)
+    {
+      this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide = 5;
+    }
+    else if (this.waveCount < 50)
+    {
+      this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide = 6;
+    }
+  }
+
   this.SpawnWave = function()
   {
     this.waveCount++;
-    
-    for (let i = 0; i < NUMBER_OF_WAVE_COLUMNS; i++)
+    this.defineMinimumNumberOfIndestructibleAsteroidsOnDifficultSide();
+
+    console.log("this.currentNumberOfIndestructibleAsteroidsOnDifficultSide: " + this.currentNumberOfIndestructibleAsteroidsOnDifficultSide);
+    console.log("this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide: " + this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide);
+    while (this.currentNumberOfIndestructibleAsteroidsOnDifficultSide < this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide)
     {
-      //choose which side is more passable
-      let coinFlipResult = Math.random();
-      //left side more passable
-      if (coinFlipResult < 0.5)
+      console.log("inside SpawnWave");
+      for (let i = 0; i < NUMBER_OF_WAVE_COLUMNS; i++)
       {
-        coinFlipResult = Math.random();
-        communicationManager.text = "left";
-
-        if (i < NUMBER_OF_WAVE_COLUMNS/2)
+        //choose which side is more passable
+        let coinFlipResult = Math.random();
+        //left side more passable
+        if (coinFlipResult < 0.5)
         {
-          //higher chance of destructible asteroids
-          if (coinFlipResult < this.currentEasySideProbability)
+          coinFlipResult = Math.random();
+          communicationManager.text = "left";
+
+          if (i < NUMBER_OF_WAVE_COLUMNS/2)
           {
-            let newDestructibleAsteroid = new DestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
-            this.arrayOfAsteroids.push(newDestructibleAsteroid);
+            //higher chance of destructible asteroids, easier side
+            if (coinFlipResult < this.currentEasySideProbability)
+            {
+              let newDestructibleAsteroid = new DestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
+              this.arrayOfAsteroids.push(newDestructibleAsteroid);
+            }
+            else
+            {
+              let newIndestructibleAsteroid = new IndestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
+              this.arrayOfAsteroids.push(newIndestructibleAsteroid);
+            }
           }
-          else
+          else //higher chance of indestructible asteroids, difficult side
           {
-            let newIndestructibleAsteroid = new IndestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
-            this.arrayOfAsteroids.push(newIndestructibleAsteroid);
+            if (coinFlipResult < this.currentDifficultSideProbability)
+            {
+              let newDestructibleAsteroid = new DestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
+              this.arrayOfAsteroids.push(newDestructibleAsteroid);
+            }
+            else
+            {
+              let newIndestructibleAsteroid = new IndestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
+              this.arrayOfAsteroids.push(newIndestructibleAsteroid);
+              this.currentNumberOfIndestructibleAsteroidsOnDifficultSide++;
+            }
           }
+
         }
         else
+        //right side more passable
         {
-          if (coinFlipResult < this.currentDifficultSideProbability)
-          {
-            let newDestructibleAsteroid = new DestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
-            this.arrayOfAsteroids.push(newDestructibleAsteroid);
-          }
-          else
-          {
-            let newIndestructibleAsteroid = new IndestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
-            this.arrayOfAsteroids.push(newIndestructibleAsteroid);
-          }
-        }
+          coinFlipResult = Math.random();
+          communicationManager.text = "right";
 
-      }
-      else
-      //right side more passable
-      {
-        coinFlipResult = Math.random();
-        communicationManager.text = "right";
-
-        if (i < NUMBER_OF_WAVE_COLUMNS/2)
-        {
-          //higher chance of indestructible asteroid
-          if (coinFlipResult < this.currentDifficultSideProbability)
+          if (i < NUMBER_OF_WAVE_COLUMNS/2)
           {
-            let newDestructibleAsteroid = new DestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
-            this.arrayOfAsteroids.push(newDestructibleAsteroid);
+            //higher chance of indestructible asteroid, difficult side
+            if (coinFlipResult < this.currentDifficultSideProbability)
+            {
+              let newDestructibleAsteroid = new DestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
+              this.arrayOfAsteroids.push(newDestructibleAsteroid);
+            }
+            else
+            {
+              let newIndestructibleAsteroid = new IndestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
+              this.arrayOfAsteroids.push(newIndestructibleAsteroid);
+              this.currentNumberOfIndestructibleAsteroidsOnDifficultSide++;
+            }
           }
           else
           {
-            let newIndestructibleAsteroid = new IndestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
-            this.arrayOfAsteroids.push(newIndestructibleAsteroid);
-          }
-        }
-        else
-        {
-          //higher chance of destructible asteroid
-          if (coinFlipResult < this.currentEasySideProbability)
-          {
-            let newDestructibleAsteroid = new DestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
-            this.arrayOfAsteroids.push(newDestructibleAsteroid);
-          }
-          else
-          {
-            let newIndestructibleAsteroid = new IndestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
-            this.arrayOfAsteroids.push(newIndestructibleAsteroid);
+            //higher chance of destructible asteroid, easier side
+            if (coinFlipResult < this.currentEasySideProbability)
+            {
+              let newDestructibleAsteroid = new DestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
+              this.arrayOfAsteroids.push(newDestructibleAsteroid);
+            }
+            else
+            {
+              let newIndestructibleAsteroid = new IndestructibleAsteroid(LEFT_ASTERCANE_BOUNDARY_XCOORDINATE + (DESTRUCTIBLE_ASTEROID_WIDTH * i),-DESTRUCTIBLE_ASTEROID_HEIGHT);
+              this.arrayOfAsteroids.push(newIndestructibleAsteroid);
+            }
           }
         }
       }
@@ -101,6 +137,7 @@ function AsteroidWaveManager()
     //this.currentEasySideProbability += this.difficultyAdjustment;
     this.currentDifficultSideProbability -= this.difficultyAdjustment;
     WAVE_ASTEROID_SPEED += 0.5;
+    this.currentNumberOfIndestructibleAsteroidsOnDifficultSide = 0;
   }
 
   this.drawWaveOfAsteroids = function()

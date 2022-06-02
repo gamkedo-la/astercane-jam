@@ -2,7 +2,6 @@ function SplashScreen()
 {
   this.Draw = function()
   {
-    console.log("inside draw of splashscreen");
     canvasContext.fillStyle = "black";
     canvasContext.fillRect(0,0, canvas.width,canvas.height);
 
