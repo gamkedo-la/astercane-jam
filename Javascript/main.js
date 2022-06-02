@@ -5,6 +5,8 @@ let isPaused = false;
 
 let splashScreen;
 let splashScreenActive = true;
+let titleScene;
+let titleSceneActive = false;
 
 let playingGame = false;
 
@@ -45,6 +47,8 @@ function InitializeGame()
   background.initialize();
   background.initializePlaceholderBoundarAsteroids();
 
+  titleScene = new TitleScene();
+
   player = new Player();
   initInput();
   bulletManager = new BulletManager();
@@ -70,6 +74,11 @@ function DrawEverything()
   if (splashScreenActive)
   {
     splashScreen.Draw();
+    return;
+  }
+  if (titleSceneActive)
+  {
+    titleScene.Draw();
     return;
   }
 

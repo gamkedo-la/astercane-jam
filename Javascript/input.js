@@ -19,6 +19,17 @@ function setKeyHoldState(thisKey, setTo)
   if(thisKey == player.controlKeyToMoveUp)
   {
     player.keyHeld_MoveUp = setTo;
+
+    if (titleSceneActive  && setTo == false)
+    {
+      guiNavigaeAudioTag.play();
+      titleScene.currentButtonIndex--;
+      if (titleScene.currentButtonIndex < 0 && setTo == false)
+      {
+        titleScene.currentButtonIndex = 2;
+      }
+      return;
+    }
   }
 
   if(thisKey == player.controlKeyToMoveLeft)
@@ -28,6 +39,17 @@ function setKeyHoldState(thisKey, setTo)
   if(thisKey == player.controlKeyToMoveDown)
   {
     player.keyHeld_MoveDown = setTo;
+
+    if (titleSceneActive && setTo == false)
+    {
+      guiNavigaeAudioTag.play();
+      titleScene.currentButtonIndex++;
+      if (titleScene.currentButtonIndex > 2)
+      {
+        titleScene.currentButtonIndex = 0;
+      }
+      return;
+    }
   }
   if(thisKey == player.controlKeyToMoveRight)
   {
@@ -38,9 +60,26 @@ function setKeyHoldState(thisKey, setTo)
     if (splashScreenActive)
     {
       splashScreenActive = false;
-      playingGame = true;
+      titleSceneActive = true;
+      guiSelectAudioTag.play();
       backgroundMusicAudioTag.play();
-      gameplayHUD.startClock();
+      player.keyHeld_Shoot = setTo;
+      return;
+    }
+
+    if (titleSceneActive && setTo == true)
+    {
+      console.log("inside title scene spacebar code");
+      if (titleScene.currentButtonIndex == 0)
+      {
+        titleSceneActive = false;
+        playingGame = true;
+        backgroundMusicAudioTag.currentTime = 0;
+        backgroundMusicAudioTag.play();
+        gameplayHUD.startClock();
+        player.keyHeld_Shoot = setTo;
+        return;
+      }
     }
     player.keyHeld_Shoot = setTo;
     if (setTo == false)
