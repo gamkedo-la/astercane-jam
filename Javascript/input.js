@@ -75,6 +75,7 @@ function setKeyHoldState(thisKey, setTo)
         titleSceneActive = false;
         playingGame = true;
         backgroundMusicAudioTag.currentTime = 0;
+        guiSelectAudioTag.play();
         backgroundMusicAudioTag.play();
         gameplayHUD.startClock();
         player.keyHeld_Shoot = setTo;
@@ -85,6 +86,7 @@ function setKeyHoldState(thisKey, setTo)
       {
         titleSceneActive = false;
         storylineSceneActive = true;
+        guiSelectAudioTag.play();
         player.keyHeld_Shoot = setTo;
         return;
       }
@@ -92,6 +94,7 @@ function setKeyHoldState(thisKey, setTo)
       {
         titleSceneActive = false;
         controlsSceneActive = true;
+        guiSelectAudioTag.play();
         player.keyHeld_Shoot = setTo;
         return;
       }
@@ -100,6 +103,7 @@ function setKeyHoldState(thisKey, setTo)
     {
       storylineSceneActive = false;
       titleSceneActive = true;
+      guiSelectAudioTag.play();
       player.keyHeld_Shoot = setTo;
       return;
     }
@@ -107,6 +111,7 @@ function setKeyHoldState(thisKey, setTo)
     {
       controlsSceneActive = false;
       titleSceneActive = true;
+      guiSelectAudioTag.play();
       player.keyHeld_Shoot = setTo;
       return;
     }
