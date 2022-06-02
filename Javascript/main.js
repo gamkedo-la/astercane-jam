@@ -23,6 +23,8 @@ let communicationManager;
 let testSignalBoosterPowerup;
 let gameplayHUD;
 
+let galaxianStarManager;
+
 window.onload = function()
 {
   canvas = document.getElementById("gameCanvas");
@@ -70,6 +72,9 @@ function InitializeGame()
 
   gameplayHUD = new GameplayHUD();
 
+  galaxianStarManager = new GalaxianStarManager();
+  galaxianStarManager.initialize();
+
   setAudioFormat();
 }
 
@@ -105,6 +110,7 @@ function DrawEverything()
   else
   {
     background.Draw();
+    galaxianStarManager.DrawGalaxianStars();
     player.Draw();
     bulletManager.DrawBullets();
     asteroidWaveManager.drawWaveOfAsteroids();
@@ -123,6 +129,8 @@ function MoveEverything()
     return;
   }
   background.moveBoundaryAsteroids();
+  galaxianStarManager.UpdateGalaxianStarAlphas();
+  galaxianStarManager.MoveGalaxianStars();
   player.Move();
   bulletManager.MoveBullets();
   asteroidWaveManager.moveWaveOfAsteroids();

@@ -50,11 +50,11 @@ function AsteroidWaveManager()
     this.waveCount++;
     this.defineMinimumNumberOfIndestructibleAsteroidsOnDifficultSide();
 
-    console.log("this.currentNumberOfIndestructibleAsteroidsOnDifficultSide: " + this.currentNumberOfIndestructibleAsteroidsOnDifficultSide);
-    console.log("this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide: " + this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide);
+    // console.log("this.currentNumberOfIndestructibleAsteroidsOnDifficultSide: " + this.currentNumberOfIndestructibleAsteroidsOnDifficultSide);
+    // console.log("this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide: " + this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide);
     while (this.currentNumberOfIndestructibleAsteroidsOnDifficultSide < this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide)
     {
-      console.log("inside SpawnWave");
+      //console.log("inside SpawnWave");
       for (let i = 0; i < NUMBER_OF_WAVE_COLUMNS; i++)
       {
         //choose which side is more passable

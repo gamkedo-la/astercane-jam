@@ -7,6 +7,8 @@ var destructibleAsteroidImage=document.createElement("img");
 
 var signalBoosterPowerupImage=document.createElement("img");
 
+var galaxianStarImage=document.createElement("img");
+
 var picsToLoad = 0;
 
 function countLoadedImageAndLaunchIfReady() {
@@ -28,7 +30,8 @@ function loadImages() {
     {varName:bulletImage, theFile:"bulletImage.png"},
     {varName:indestructibleAsteroidImage, theFile:"IndestructibleAsteroidImage.png"},
     {varName:destructibleAsteroidImage, theFile:"DestructibleAsteroidImage.png"},
-    {varName:signalBoosterPowerupImage, theFile:"SignalBoosterPowerupImage.png"}
+    {varName:signalBoosterPowerupImage, theFile:"SignalBoosterPowerupImage.png"},
+    {varName:galaxianStarImage, theFile:"GalaxianStarImage.png"}
     ];
 
   picsToLoad = imageList.length;
