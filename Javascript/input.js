@@ -75,7 +75,7 @@ function setKeyHoldState(thisKey, setTo)
         titleSceneActive = false;
         playingGame = true;
         backgroundMusicAudioTag.currentTime = 0;
-        guiSelectAudioTag.play();
+        gameplayStartSoundAudioTag.play();
         backgroundMusicAudioTag.play();
         gameplayHUD.startClock();
         player.keyHeld_Shoot = setTo;
