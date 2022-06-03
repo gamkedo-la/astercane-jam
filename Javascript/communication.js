@@ -10,7 +10,7 @@ function CommunicationManager()
       return;
     }
     canvasContext.globalAlpha = this.currentAlpha;
-    canvasContext.font = "50px serif";
+    canvasContext.font = "50px VT323";
     canvasContext.fillStyle = "purple";
     canvasContext.fillText(this.text, canvas.width/2, 50);
     canvasContext.globalAlpha = 1;
