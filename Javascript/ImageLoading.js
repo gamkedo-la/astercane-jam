@@ -12,6 +12,14 @@ var signalBoosterPowerupImage=document.createElement("img");
 
 var galaxianStarImage=document.createElement("img");
 
+var explosionImage1=document.createElement("img");
+var explosionImage2=document.createElement("img");
+var explosionImage3=document.createElement("img");
+var explosionImage4=document.createElement("img");
+var explosionImage5=document.createElement("img");
+var explosionImage6=document.createElement("img");
+var explosionImage7=document.createElement("img");
+
 var picsToLoad = 0;
 
 function countLoadedImageAndLaunchIfReady() {
@@ -36,7 +44,15 @@ function loadImages() {
     {varName:indestructibleAsteroidImage, theFile:"IndestructibleAsteroidImage.png"},
     {varName:destructibleAsteroidImage, theFile:"DestructibleAsteroidImage.png"},
     {varName:signalBoosterPowerupImage, theFile:"SignalBoosterPowerupImage.png"},
-    {varName:galaxianStarImage, theFile:"GalaxianStarImage.png"}
+    {varName:galaxianStarImage, theFile:"GalaxianStarImage.png"},
+
+    {varName:explosionImage1, theFile:"explosionAnimation/explosion1.png"},
+    {varName:explosionImage2, theFile:"explosionAnimation/explosion2.png"},
+    {varName:explosionImage3, theFile:"explosionAnimation/explosion3.png"},
+    {varName:explosionImage4, theFile:"explosionAnimation/explosion4.png"},
+    {varName:explosionImage5, theFile:"explosionAnimation/explosion5.png"},
+    {varName:explosionImage6, theFile:"explosionAnimation/explosion6.png"},
+    {varName:explosionImage7, theFile:"explosionAnimation/explosion7.png"}
     ];
 
   picsToLoad = imageList.length;

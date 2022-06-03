@@ -38,6 +38,8 @@ function BulletManager()
           if (asteroidWaveManager.arrayOfAsteroids[j].destructible)
           {
             asteroidWaveManager.arrayOfAsteroids.splice(j,1);
+            let newExplosion = new Explosion(asteroidWaveManager.arrayOfAsteroids[j].x - 50,asteroidWaveManager.arrayOfAsteroids[j].y + 30);    
+            explosionManager.arrayOfExplosions.push(newExplosion);
             explosionAudioTag.play();
           }
           else

@@ -38,7 +38,6 @@ function Asteroid(startingX,startingY)
         this.Image = asteroidImage3;
       }
     }
-    console.log("asteroid.Image: " + this.Image);
   }
 
   this.Draw = function()
@@ -90,7 +89,7 @@ function Asteroid(startingX,startingY)
   this.initialize = function()
   {
     this.chooseImage();
-    
+
     this.xSpeed = getRandomArbitrary(1, 5);
     this.ySpeed = getRandomArbitrary(1, 5);
 

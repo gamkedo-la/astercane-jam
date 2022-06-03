@@ -25,6 +25,8 @@ let gameplayHUD;
 
 let galaxianStarManager;
 
+let explosionManager;
+
 window.onload = function()
 {
   canvas = document.getElementById("gameCanvas");
@@ -75,6 +77,8 @@ function InitializeGame()
   galaxianStarManager = new GalaxianStarManager();
   galaxianStarManager.initialize();
 
+  explosionManager = new ExplosionManager();
+
   setAudioFormat();
 }
 
@@ -119,6 +123,8 @@ function DrawEverything()
     DrawDamageCount();
     gameplayHUD.displayWaveCount();
     gameplayHUD.displayElapsedTime();
+    explosionManager.drawExplosions();
+    //canvasContext.drawImage(explosionImage1, canvas.width/2,canvas.height/2, 100,100);
   }
 }
 
@@ -137,4 +143,5 @@ function MoveEverything()
   communicationManager.updateAlpha();
   testSignalBoosterPowerup.Move();
   testSignalBoosterPowerup.checkForReset();
+  explosionManager.updateExplosions();
 }
