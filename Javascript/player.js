@@ -80,14 +80,24 @@ function Player()
             this.x + this.width > asteroidWaveManager.arrayOfAsteroids[i].x &&
             this.y < asteroidWaveManager.arrayOfAsteroids[i].y + DESTRUCTIBLE_ASTEROID_HEIGHT &&
             this.y + this.height > asteroidWaveManager.arrayOfAsteroids[i].y )
-            
+
           ||
           //if colliding with astercane boundaries
           (this.x < LEFT_ASTERCANE_BOUNDARY_XCOORDINATE - this.width/2 || this.x + this.width > RIGHT_ASTERCANE_BOUNDARY_XCOORDINATE + this.width/2)
         )
             {
               this.destroyed = true;
-              setTimeout(() => {this.x = this.startingX;this.y = this.startingY; this.destroyed = false}, "500");
+              setTimeout
+              (
+                () =>
+                {
+                  this.x = this.startingX;
+                  this.y = this.startingY;
+                  this.destroyed = false;
+                  respawnSoundAudioTag.play();
+                },
+                "750"
+             );
 
               damageCount++;
 

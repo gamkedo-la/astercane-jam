@@ -6,6 +6,7 @@ var explosionAudioTag = new Audio("Audio/Explosion.wav");
 var signalBoosterAudioTag = new Audio("Audio/Signal_Booster_Powerup.wav");
 var indestructibleAsteroidWithBulletAudioTag = new Audio("Audio/Indestructible_Asteroid_With_Bullet.wav");
 var gameplayStartSoundAudioTag = new Audio("Audio/GameplayStartSound.wav");
+var respawnSoundAudioTag = new Audio("Audio/Respawn.wav");
 
 var backgroundMusicAudioTag = new Audio("Audio/583555__noisytoons__nt-super-cosmic.mp3");
 backgroundMusicAudioTag.loop = true;
