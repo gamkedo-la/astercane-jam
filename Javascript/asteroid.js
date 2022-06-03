@@ -19,9 +19,31 @@ function Asteroid(startingX,startingY)
   this.xSpeed = undefined;
   this.ySpeed = undefined;
 
+  this.Image = undefined;
+
+  this.chooseImage = function()
+  {
+    let threeSidedCoinFlip = Math.random();
+    {
+      if (threeSidedCoinFlip < 0.33)
+      {
+        this.Image = asteroidImage;
+      }
+      else if (threeSidedCoinFlip < 0.66)
+      {
+        this.Image = asteroidImage2;
+      }
+      else
+      {
+        this.Image = asteroidImage3;
+      }
+    }
+    console.log("asteroid.Image: " + this.Image);
+  }
+
   this.Draw = function()
   {
-    canvasContext.drawImage(asteroidImage, this.x,this.y, this.width,this.height);
+    canvasContext.drawImage(this.Image, this.x,this.y, this.width,this.height);
   }
 
   this.Move = function()
@@ -67,6 +89,8 @@ function Asteroid(startingX,startingY)
 
   this.initialize = function()
   {
+    this.chooseImage();
+    
     this.xSpeed = getRandomArbitrary(1, 5);
     this.ySpeed = getRandomArbitrary(1, 5);
 

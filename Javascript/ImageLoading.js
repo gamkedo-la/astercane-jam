@@ -2,6 +2,9 @@ var shipImage=document.createElement("img");
 var bulletImage=document.createElement("img");
 
 var asteroidImage=document.createElement("img");
+var asteroidImage2=document.createElement("img");
+var asteroidImage3=document.createElement("img");
+
 var indestructibleAsteroidImage=document.createElement("img");
 var destructibleAsteroidImage=document.createElement("img");
 
@@ -27,6 +30,8 @@ function loadImages() {
   var imageList = [
     {varName:shipImage, theFile:"ShipImage.png"},
     {varName:asteroidImage, theFile:"AsteroidImage.png"},
+    {varName:asteroidImage2, theFile:"AsteroidImage2.png"},
+    {varName:asteroidImage3, theFile:"AsteroidImage3.png"},
     {varName:bulletImage, theFile:"bulletImage.png"},
     {varName:indestructibleAsteroidImage, theFile:"IndestructibleAsteroidImage.png"},
     {varName:destructibleAsteroidImage, theFile:"DestructibleAsteroidImage.png"},
