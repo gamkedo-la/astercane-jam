@@ -28,17 +28,17 @@ function BulletManager()
     {
       this.arrayOfBullets[i].Move();
 
-      for (let j = 0; j < asteroidWaveManager.arrayOfAsteroids.length; j++)
+      for (let j = 0; j < asteroidWaveManager.arrayOfWaves[0].arrayOfAsteroids.length; j++)
       {
-        if (this.arrayOfBullets[i].y < asteroidWaveManager.arrayOfAsteroids[j].y + DESTRUCTIBLE_ASTEROID_HEIGHT &&
-            this.arrayOfBullets[i].x > asteroidWaveManager.arrayOfAsteroids[j].x &&
-            this.arrayOfBullets[i].x < asteroidWaveManager.arrayOfAsteroids[j].x + DESTRUCTIBLE_ASTEROID_WIDTH)
+        if (this.arrayOfBullets[i].y < asteroidWaveManager.arrayOfWaves[0].arrayOfAsteroids[j].y + DESTRUCTIBLE_ASTEROID_HEIGHT &&
+            this.arrayOfBullets[i].x > asteroidWaveManager.arrayOfWaves[0].arrayOfAsteroids[j].x &&
+            this.arrayOfBullets[i].x < asteroidWaveManager.arrayOfWaves[0].arrayOfAsteroids[j].x + DESTRUCTIBLE_ASTEROID_WIDTH)
         {
           this.arrayOfBullets.splice(i,1);
-          if (asteroidWaveManager.arrayOfAsteroids[j].destructible)
+          if (asteroidWaveManager.arrayOfWaves[0].arrayOfAsteroids[j].destructible)
           {
-            asteroidWaveManager.arrayOfAsteroids.splice(j,1);
-            let newExplosion = new Explosion(asteroidWaveManager.arrayOfAsteroids[j].x - 50,asteroidWaveManager.arrayOfAsteroids[j].y + 30);    
+            asteroidWaveManager.arrayOfWaves[0].arrayOfAsteroids.splice(j,1);
+            let newExplosion = new Explosion(asteroidWaveManager.arrayOfAsteroids[j].x - 50,asteroidWaveManager.arrayOfAsteroids[j].y + 30);
             explosionManager.arrayOfExplosions.push(newExplosion);
             explosionAudioTag.play();
           }

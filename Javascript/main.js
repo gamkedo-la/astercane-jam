@@ -68,7 +68,7 @@ function InitializeGame()
 
   asteroid = new Asteroid();
   asteroidWaveManager = new AsteroidWaveManager();
-  asteroidWaveManager.SpawnWave();
+  asteroidWaveManager.Initialize();
 
   testSignalBoosterPowerup = new SignalBoosterPowerup();
   testSignalBoosterPowerup.defineStartingPosition();
@@ -126,7 +126,7 @@ function DrawEverything()
     galaxianStarManager.DrawGalaxianStars();
     player.Draw();
     bulletManager.DrawBullets();
-    asteroidWaveManager.drawWaveOfAsteroids();
+    asteroidWaveManager.drawWavesOfAsteroids();
     communicationManager.drawText();
     testSignalBoosterPowerup.Draw();
     DrawDamageCount();
@@ -149,7 +149,7 @@ function MoveEverything()
   player.Move();
   bulletManager.MoveBullets();
   asteroidWaveManager.checkForEndOfGame();
-  asteroidWaveManager.moveWaveOfAsteroids();
+  asteroidWaveManager.moveWavesOfAsteroids();
   communicationManager.updateAlpha();
   testSignalBoosterPowerup.Move();
   testSignalBoosterPowerup.checkForReset();

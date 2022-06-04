@@ -72,14 +72,14 @@ function Player()
     if (!this.destroyed)
     {
       //collision check asteroids
-      for (let i = 0; i < asteroidWaveManager.arrayOfAsteroids.length; i++)
+      for (let i = 0; i < asteroidWaveManager.arrayOfWaves[0].arrayOfAsteroids.length; i++)
       {
         if (
           //if colliding with a main asteroid
-          (this.x < asteroidWaveManager.arrayOfAsteroids[i].x + DESTRUCTIBLE_ASTEROID_WIDTH &&
-            this.x + this.width > asteroidWaveManager.arrayOfAsteroids[i].x &&
-            this.y < asteroidWaveManager.arrayOfAsteroids[i].y + DESTRUCTIBLE_ASTEROID_HEIGHT &&
-            this.y + this.height > asteroidWaveManager.arrayOfAsteroids[i].y )
+          (this.x < asteroidWaveManager.arrayOfWaves[0].arrayOfAsteroids[i].x + DESTRUCTIBLE_ASTEROID_WIDTH &&
+            this.x + this.width > asteroidWaveManager.arrayOfWaves[0].arrayOfAsteroids[i].x &&
+            this.y < asteroidWaveManager.arrayOfWaves[0].arrayOfAsteroids[i].y + DESTRUCTIBLE_ASTEROID_HEIGHT &&
+            this.y + this.height > asteroidWaveManager.arrayOfWaves[0].arrayOfAsteroids[i].y )
 
           ||
           //if colliding with astercane boundaries
