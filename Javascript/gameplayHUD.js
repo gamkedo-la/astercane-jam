@@ -6,7 +6,7 @@ function GameplayHUD()
   {
     canvasContext.fillStyle = 'red';
     canvasContext.font = '30px VT323';
-    canvasContext.fillText(asteroidWaveManager.waveCount, 50,canvas.height - 50);
+    canvasContext.fillText(asteroidWaveManager.waveCount, 50,canvas.height - 125);
   }
 
   this.startClock = function()
@@ -22,6 +22,6 @@ function GameplayHUD()
     let roundedSeconds = Math.round(convertToSeconds);
     canvasContext.fillStyle = 'red';
     canvasContext.font = '30px VT323';
-    canvasContext.fillText(roundedSeconds, 100,canvas.height - 50);
+    canvasContext.fillText(roundedSeconds, 100,canvas.height - 125);
   }
 }
