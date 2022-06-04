@@ -33,7 +33,7 @@ window.onload = function()
   canvasContext = canvas.getContext("2d");
   canvasContext.fillStyle = "black";
   canvasContext.fillRect(0,0, canvas.width,canvas.height);
-
+  console.log("test from other machine");
   loadImages();
   InitializeGame();
 }
