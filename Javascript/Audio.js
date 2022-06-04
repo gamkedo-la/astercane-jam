@@ -7,10 +7,12 @@ var signalBoosterAudioTag = new Audio("Audio/Signal_Booster_Powerup.wav");
 var indestructibleAsteroidWithBulletAudioTag = new Audio("Audio/Indestructible_Asteroid_With_Bullet.wav");
 var gameplayStartSoundAudioTag = new Audio("Audio/GameplayStartSound.wav");
 var respawnSoundAudioTag = new Audio("Audio/Respawn.wav");
+var moveSoundAudioTag = new Audio("Audio/MoveSound.wav");
+var moveSoundAudioTag2 = new Audio("Audio/MoveSound.wav");
 
-var backgroundMusicAudioTag = new Audio("Audio/583555__noisytoons__nt-super-cosmic.mp3");
+var backgroundMusicAudioTag = new Audio("Audio/Astercane.wav");
 backgroundMusicAudioTag.loop = true;
-backgroundMusicAudioTag.playbackRate = 0.66;
+backgroundMusicAudioTag.playbackRate = 1;
 backgroundMusicAudioTag.volume = 0.66;
 
 var audioFormat;

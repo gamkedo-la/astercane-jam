@@ -35,6 +35,7 @@ function setKeyHoldState(thisKey, setTo)
   if(thisKey == player.controlKeyToMoveLeft)
   {
     player.keyHeld_MoveLeft = setTo;
+
   }
   if(thisKey == player.controlKeyToMoveDown)
   {

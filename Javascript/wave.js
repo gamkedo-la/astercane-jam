@@ -160,7 +160,7 @@ function AsteroidWaveManager()
 
         boundaryAsteroidSpeedAdjustment += 0.05;
 
-        backgroundMusicAudioTag.playbackRate += 0.01;
+        //backgroundMusicAudioTag.playbackRate += 0.01;
 
         if (backgroundMusicAudioTag.volume < 1)
         {
