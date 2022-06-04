@@ -18,6 +18,6 @@ function CommunicationManager()
 
   this.updateAlpha = function()
   {
-    this.currentAlpha -= 0.0025;
+    //this.currentAlpha -= 0.0025;
   }
 }
