@@ -17,6 +17,7 @@ function AsteroidWaveManager()
   this.arrayOfAsteroids = [];
 
   this.waveCount = 0;
+  this.endWaveCount = 50;
 
   this.currentNumberOfIndestructibleAsteroidsOnDifficultSide = 0;
   this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide = 2;
@@ -43,6 +44,16 @@ function AsteroidWaveManager()
     {
       this.minimumNumberOfIndestructibleAsteroidsOnDifficultSide = 6;
     }
+  }
+
+  this.checkForEndOfGame = function()
+  {
+      if (this.waveCount == this.endWaveCount)
+      {
+        playingGame = false;
+        gameOver = true;
+        this.waveCount = 0;
+      }
   }
 
   this.SpawnWave = function()

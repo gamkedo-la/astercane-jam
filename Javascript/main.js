@@ -13,6 +13,8 @@ let controlsScene;
 let controlsSceneActive = false;
 
 let playingGame = false;
+let gameOver = false;
+let gameOverScene;
 
 let background;
 let player;
@@ -33,7 +35,7 @@ window.onload = function()
   canvasContext = canvas.getContext("2d");
   canvasContext.fillStyle = "black";
   canvasContext.fillRect(0,0, canvas.width,canvas.height);
-  console.log("test from other machine");
+
   loadImages();
   InitializeGame();
 }
@@ -79,6 +81,8 @@ function InitializeGame()
 
   explosionManager = new ExplosionManager();
 
+  gameOverScene = new GameOverScene();
+
   setAudioFormat();
 }
 
@@ -102,6 +106,11 @@ function DrawEverything()
   if (controlsSceneActive)
   {
     controlsScene.Draw();
+    return;
+  }
+  if (gameOver)
+  {
+    gameOverScene.Draw();
     return;
   }
 
@@ -139,6 +148,7 @@ function MoveEverything()
   galaxianStarManager.MoveGalaxianStars();
   player.Move();
   bulletManager.MoveBullets();
+  asteroidWaveManager.checkForEndOfGame();
   asteroidWaveManager.moveWaveOfAsteroids();
   communicationManager.updateAlpha();
   testSignalBoosterPowerup.Move();
