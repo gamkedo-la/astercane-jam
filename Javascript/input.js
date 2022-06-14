@@ -63,7 +63,8 @@ function setKeyHoldState(thisKey, setTo)
       splashScreenActive = false;
       titleSceneActive = true;
       guiSelectAudioTag.play();
-      backgroundMusicAudioTag.play();
+      // backgroundMusicAudioTag.play();
+      othersongAudioTag.play();
       player.keyHeld_Shoot = setTo;
       return;
     }
@@ -78,6 +79,8 @@ function setKeyHoldState(thisKey, setTo)
         backgroundMusicAudioTag.currentTime = 0;
         gameplayStartSoundAudioTag.play();
         backgroundMusicAudioTag.play();
+        othersongAudioTag.pause();
+        othersongAudioTag.currentTime = 0;
         gameplayHUD.startClock();
         player.keyHeld_Shoot = setTo;
         return;

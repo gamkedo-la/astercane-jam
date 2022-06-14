@@ -138,7 +138,7 @@ function AsteroidWaveManager()
   this.currentDifficultSideProbability = 0.25;
 
   this.waveCount = 0;
-  this.endWaveCount = 50;
+  this.endWaveCount = 30;
 
   this.arrayOfWaves = [];
 
@@ -176,6 +176,7 @@ function AsteroidWaveManager()
         playingGame = false;
         gameOver = true;
         this.waveCount = 0;
+        gameOverAudioTag.play();
       }
   }
 

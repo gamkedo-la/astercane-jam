@@ -11,9 +11,12 @@ function TitleScene()
 
   this.drawTitleText = function()
   {
+    
+    canvasContext.fillStyle = 'white';
+    canvasContext.font = '135px VT323';
+    canvasContext.fillText(this.titleText, 357, 182);
+    canvasContext.font = '30px VT323';
     canvasContext.fillStyle = 'grey';
-    canvasContext.font = 'VT323 100px';
-    canvasContext.fillText(this.titleText, canvas.width/2 - 100, 100);
   }
 
   this.Draw = function()

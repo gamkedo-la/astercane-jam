@@ -7,6 +7,6 @@ function SplashScreen()
 
     canvasContext.fillStyle = "white";
     canvasContext.font = "30px VT323";
-    canvasContext.fillText("press spacebar to start", canvas.width/2, canvas.height/2);
+    canvasContext.fillText("press spacebar to start", 465, 630);
   }
 }
